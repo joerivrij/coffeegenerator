@@ -43,9 +43,7 @@ public class CoffeeChoice {
         int j = coffeeNumber[koffieNrRandom(coffeeNumber)];
         return j;
     }
-      
-      //System.out.println("De drank die je krijgt is " + coffeeName[koffieNrRandom(coffeeNumber)]);
-   //  System.out.println(coffeeStrength[codeRandom(coffeeStrength)]);
+
 
     public static int koffieNrRandom(int[] coffeeNumber) {
 
@@ -63,30 +61,3 @@ public class CoffeeChoice {
     }
 }
 
-
-
-/*
-    int code = coffeeNumber[c] + k;
-                System.out.println("De " + coffeeName[c] + " zal u lekker smaken!"
-                + " De snelcode voor uw selectie is: " + code);
- public static void main(String[] args) {
-     
-      
-     int[] coffeeStrength = {
-         1, 2, 3, 4, 5
-     };
-     
-     int[] coffeeNumber = {
-        0, 25, 30, 35, 40, 45, 56, 57
-     };
-     
-     String[] coffeeName = {
-     "Koffie", "Wiener Melange", "Café au Lait", "Espresso", 
-     "Cappuccino", "Dubbele Espresso", "Chocomel", "Chococino"
-     };
-
-      
-      System.out.println("De drank die je krijgt is " + coffeeName[koffieNrRandom(coffeeNumber)]);
-      System.out.println(coffeeStrength[codeRandom(coffeeStrength)]);
-    }
-  */
