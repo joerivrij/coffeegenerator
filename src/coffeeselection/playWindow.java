@@ -5,6 +5,13 @@
  */
 package coffeeselection;
 
+
+
+
+import static coffeeselection.CoffeeChoice.codeRandom;
+import static coffeeselection.CoffeeChoice.koffieNrRandom;
+
+
 /**
  *
  * @author jvrij
@@ -17,7 +24,7 @@ public class playWindow extends javax.swing.JFrame {
     public playWindow() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,26 +34,119 @@ public class playWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        mainScreen = new javax.swing.JPanel();
+        btnRoll = new javax.swing.JButton();
+        labelTxt = new javax.swing.JLabel();
+        txtUitkomst = new javax.swing.JTextField();
+        txtKracht = new javax.swing.JTextField();
+        txtCode = new javax.swing.JTextField();
+        btnExit = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        mainScreen.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        btnRoll.setText("Geef me een koffie!");
+        btnRoll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRollActionPerformed(evt);
+            }
+        });
+
+        labelTxt.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelTxt.setText("De warme drank die je krijgt is de volgende:");
+
+        txtUitkomst.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+
+        javax.swing.GroupLayout mainScreenLayout = new javax.swing.GroupLayout(mainScreen);
+        mainScreen.setLayout(mainScreenLayout);
+        mainScreenLayout.setHorizontalGroup(
+            mainScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainScreenLayout.createSequentialGroup()
+                .addContainerGap(109, Short.MAX_VALUE)
+                .addGroup(mainScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainScreenLayout.createSequentialGroup()
+                        .addComponent(labelTxt)
+                        .addGap(104, 104, 104))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainScreenLayout.createSequentialGroup()
+                        .addGroup(mainScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtKracht, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRoll, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(273, 273, 273))))
+            .addGroup(mainScreenLayout.createSequentialGroup()
+                .addGap(133, 133, 133)
+                .addComponent(txtUitkomst, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        mainScreenLayout.setVerticalGroup(
+            mainScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainScreenLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(labelTxt)
+                .addGap(18, 18, 18)
+                .addComponent(txtUitkomst, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtKracht, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(btnRoll)
+                .addContainerGap())
+        );
+
+        btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(mainScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnExit)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(mainScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(btnExit)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnRollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRollActionPerformed
+        // TODO add your handling code here:
+
+        //txtUitkomst.setText(String.valueOf();
+        
+       txtUitkomst.setText(String.valueOf(CoffeeChoice.koffieNaam()));
+       txtKracht.setText(String.valueOf(CoffeeChoice.koffieKracht()));
+       txtCode.setText(String.valueOf(CoffeeChoice.koffieCode()));
+                
+
+    }//GEN-LAST:event_btnRollActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+  
+     
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -77,7 +177,18 @@ public class playWindow extends javax.swing.JFrame {
             }
         });
     }
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnRoll;
+    private javax.swing.JLabel labelTxt;
+    private javax.swing.JPanel mainScreen;
+    private javax.swing.JTextField txtCode;
+    private javax.swing.JTextField txtKracht;
+    private javax.swing.JTextField txtUitkomst;
     // End of variables declaration//GEN-END:variables
+
+
 }
