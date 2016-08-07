@@ -11,6 +11,7 @@ import java.util.Random;
  */
 public class CoffeeChoice {
 
+    static Random rand = new Random();
 
      static int[] coffeeStrength = {
          1, 2, 3, 4, 5
@@ -27,36 +28,35 @@ public class CoffeeChoice {
      
      public static String koffieNaam() {
  
-     String k = coffeeName[koffieNrRandom(coffeeNumber)];
-     return k;
+        String k = coffeeName[koffieNrRandom(coffeeNumber)];
+        return k;
      
      }
      
     public static int koffieKracht() {
  
-     int i = coffeeStrength[codeRandom(coffeeStrength)];
-     return i;
+        int i = coffeeStrength[codeRandom(coffeeStrength)];
+        return i;
      
      }
     
     public static int koffieCode() {
+        
         int j = coffeeNumber[koffieNrRandom(coffeeNumber)];
         return j;
     }
 
 
     public static int koffieNrRandom(int[] coffeeNumber) {
-
-        Random soort = new Random();       
-        int i = soort.nextInt(coffeeNumber.length);
+      
+        int i = rand.nextInt(coffeeNumber.length);
         return i;
     }
 
     
   public static int codeRandom(int[] coffeeStrength) {
  
-        Random kracht = new Random();
-        int i = kracht.nextInt(coffeeStrength.length);
+        int i = rand.nextInt(coffeeStrength.length);
         return i;
     }
 }
