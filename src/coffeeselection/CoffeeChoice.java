@@ -34,11 +34,11 @@ public class CoffeeChoice {
      
       public static int koffieCode() {
       
-        return coffeeNumber[plaats];
+        return coffeeNumber[plaats] + coffeeStrength[kracht];
     }
          
     public static int koffieKracht() {
-        getKrachtRandom();
+       getKrachtRandom();
        return coffeeStrength[kracht];
      
      }

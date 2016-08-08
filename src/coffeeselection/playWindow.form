@@ -56,7 +56,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace pref="109" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="labelTxt" min="-2" max="-2" attributes="0"/>
@@ -65,8 +65,12 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="txtKracht" min="-2" pref="106" max="-2" attributes="0"/>
-                              <Component id="btnRoll" min="-2" pref="158" max="-2" attributes="0"/>
                               <Component id="txtCode" alignment="1" min="-2" pref="106" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="btnWillem" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="55" max="32767" attributes="0"/>
+                                  <Component id="btnRoll" min="-2" pref="158" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace min="-2" pref="273" max="-2" attributes="0"/>
                       </Group>
@@ -91,7 +95,10 @@
                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                   <Component id="txtCode" min="-2" pref="43" max="-2" attributes="0"/>
                   <EmptySpace pref="34" max="32767" attributes="0"/>
-                  <Component id="btnRoll" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnRoll" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnWillem" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -124,6 +131,14 @@
         <Component class="javax.swing.JTextField" name="txtKracht">
         </Component>
         <Component class="javax.swing.JTextField" name="txtCode">
+        </Component>
+        <Component class="javax.swing.JButton" name="btnWillem">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Willem knop"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnWillemActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
