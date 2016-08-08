@@ -14,7 +14,7 @@ public class CoffeeChoice {
     static Random rand = new Random();
     static int plaats;
     static int kracht;
-     static int[] coffeeStrength = {
+    static int[] coffeeStrength = {
          1, 2, 3, 4, 5
      };
      
@@ -33,15 +33,26 @@ public class CoffeeChoice {
      }
      
       public static int koffieCode() {
-      
-        return coffeeNumber[plaats] + coffeeStrength[kracht];
+          if((coffeeNumber[plaats] == 56) || (coffeeNumber[plaats] == 57)
+                  || (coffeeNumber[plaats] == 100))
+           {
+              return coffeeNumber[plaats];
+                      } else {
+              return coffeeNumber[plaats] + coffeeStrength[kracht];
+        }
     }
          
     public static int koffieKracht() {
+                 if((coffeeNumber[plaats] == 56) || (coffeeNumber[plaats] == 57)
+                  || (coffeeNumber[plaats] == 100))
+           {
+              return 0;
+           } else {
        getKrachtRandom();
        return coffeeStrength[kracht];
      
      }
+    }
 
     public static int getKoffieNrRandom() {
          CoffeeChoice.plaats = rand.nextInt(coffeeNumber.length);
