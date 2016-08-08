@@ -8,8 +8,8 @@ package coffeeselection;
 
 
 
-import static coffeeselection.CoffeeChoice.codeRandom;
-import static coffeeselection.CoffeeChoice.koffieNrRandom;
+import static coffeeselection.CoffeeChoice.getKoffieNrRandom;
+import static coffeeselection.CoffeeChoice.krachtRandom;
 
 
 /**

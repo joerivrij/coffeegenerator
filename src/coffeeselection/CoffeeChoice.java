@@ -18,7 +18,7 @@ public class CoffeeChoice {
      };
      
      static int[] coffeeNumber = {
-        100, 0, 25, 30, 35, 40, 45, 56, 57
+        10, 20, 30, 40, 50, 60, 70, 80, 90
      };
      
      static String[] coffeeName = {
@@ -28,36 +28,38 @@ public class CoffeeChoice {
      
      public static String koffieNaam() {
  
-        String k = coffeeName[koffieNrRandom(coffeeNumber)];
+        String k = coffeeName[getKoffieNrRandom(coffeeNumber)];
         return k;
      
      }
      
+      public static int koffieCode() {
+        
+        int j = coffeeNumber[getKoffieNrRandom(coffeeNumber)];
+        return j;
+    }
+         
     public static int koffieKracht() {
- 
-        int i = coffeeStrength[codeRandom(coffeeStrength)];
+        
+        int i = coffeeStrength[krachtRandom(coffeeStrength)];
         return i;
      
      }
-    
-    public static int koffieCode() {
-        
-        int j = coffeeNumber[koffieNrRandom(coffeeNumber)];
-        return j;
+
+    public static int getKoffieNrRandom(int[] coffeeNumber) {
+
+        int rnd = rand.nextInt(coffeeNumber.length);
+        return rnd;
     }
-
-
-    public static int koffieNrRandom(int[] coffeeNumber) {
-      
-        int i = rand.nextInt(coffeeNumber.length);
-        return i;
-    }
-
     
-  public static int codeRandom(int[] coffeeStrength) {
+  public static int krachtRandom(int[] coffeeStrength) {
  
         int i = rand.nextInt(coffeeStrength.length);
         return i;
     }
 }
 
+
+
+
+ 
