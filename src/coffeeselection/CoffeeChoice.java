@@ -43,10 +43,10 @@ public class CoffeeChoice {
     }
          
     public static int koffieKracht() {
-                 if((coffeeNumber[plaats] == 56) || (coffeeNumber[plaats] == 57)
+           if((coffeeNumber[plaats] == 56) || (coffeeNumber[plaats] == 57)
                   || (coffeeNumber[plaats] == 100))
            {
-              return 0;
+           return 0;
            } else {
        getKrachtRandom();
        return coffeeStrength[kracht];
