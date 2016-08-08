@@ -16,6 +16,7 @@ public class CoffeeChoice {
     static Random rand = new Random();
     static int plaats;
     static int kracht;
+    
     static int[] coffeeStrength = {
         1, 2, 3, 4, 5
     };
