@@ -9,7 +9,7 @@ package coffeeselection;
 
 
 import static coffeeselection.CoffeeChoice.getKoffieNrRandom;
-import static coffeeselection.CoffeeChoice.krachtRandom;
+import static coffeeselection.CoffeeChoice.getKrachtRandom;
 
 
 /**

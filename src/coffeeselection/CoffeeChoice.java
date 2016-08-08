@@ -12,50 +12,46 @@ import java.util.Random;
 public class CoffeeChoice {
 
     static Random rand = new Random();
-
+    static int plaats;
+    static int kracht;
      static int[] coffeeStrength = {
          1, 2, 3, 4, 5
      };
      
      static int[] coffeeNumber = {
-        10, 20, 30, 40, 50, 60, 70, 80, 90
+        100, 0, 25, 30, 35, 40, 45, 56, 57
      };
      
      static String[] coffeeName = {
         "Thee", "Koffie", "Wiener Melange", "Café au Lait", "Espresso", 
-        "Cappuccino", "Dubbele Espresso", "Chocomel", "Chococino"
+        "Dubbele Espresso", "Cappuccino", "Chocomel", "Chococino"
      };
-     
+      
      public static String koffieNaam() {
- 
-        String k = coffeeName[getKoffieNrRandom(coffeeNumber)];
-        return k;
-     
+       getKoffieNrRandom();
+       return coffeeName[plaats];
      }
      
       public static int koffieCode() {
-        
-        int j = coffeeNumber[getKoffieNrRandom(coffeeNumber)];
-        return j;
+      
+        return coffeeNumber[plaats];
     }
          
     public static int koffieKracht() {
-        
-        int i = coffeeStrength[krachtRandom(coffeeStrength)];
-        return i;
+        getKrachtRandom();
+       return coffeeStrength[kracht];
      
      }
 
-    public static int getKoffieNrRandom(int[] coffeeNumber) {
-
-        int rnd = rand.nextInt(coffeeNumber.length);
-        return rnd;
+    public static int getKoffieNrRandom() {
+         CoffeeChoice.plaats = rand.nextInt(coffeeNumber.length);
+         return plaats;
     }
     
-  public static int krachtRandom(int[] coffeeStrength) {
+  public static int getKrachtRandom() {
  
-        int i = rand.nextInt(coffeeStrength.length);
-        return i;
+        CoffeeChoice.kracht = rand.nextInt(coffeeStrength.length);
+        return kracht;
     }
 }
 
