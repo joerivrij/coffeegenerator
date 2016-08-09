@@ -170,9 +170,9 @@ public class playWindow extends javax.swing.JFrame {
 
     private void btnWillemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWillemActionPerformed
         // TODO add your handling code here:
-       txtUitkomst.setText("Wiener Melange");
-       txtKracht.setText("1");
-       txtCode.setText("26");
+       txtUitkomst.setText("Atlas Bier");
+       txtKracht.setText("10");
+       txtCode.setText("XXX");
     }//GEN-LAST:event_btnWillemActionPerformed
 
     /**
