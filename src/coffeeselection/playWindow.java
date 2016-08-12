@@ -5,12 +5,8 @@
  */
 package coffeeselection;
 
-
-
-
-import static coffeeselection.CoffeeChoice.getKoffieNrRandom;
-import static coffeeselection.CoffeeChoice.getKrachtRandom;
-
+import java.util.TimerTask;
+import java.util.Timer;
 
 /**
  *
@@ -18,13 +14,27 @@ import static coffeeselection.CoffeeChoice.getKrachtRandom;
  */
 public class playWindow extends javax.swing.JFrame {
 
+    boolean play;
+
     /**
      * Creates new form playWindow
      */
     public playWindow() {
         initComponents();
+        Timer time = new Timer();
+        TimerTask task = new TimerTask() {
+            public void run() {
+                if (play) {
+                    txtUitkomst.setText(String.valueOf(CoffeeChoice.koffieNaam()));
+                    txtKracht.setText(String.valueOf(CoffeeChoice.koffieKracht()));
+                    txtCode.setText(String.valueOf(CoffeeChoice.koffieCode()));
+
+                }
+            }
+        };
+        time.scheduleAtFixedRate(task, 0, 150);
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,6 +54,7 @@ public class playWindow extends javax.swing.JFrame {
         txtBoxSterkte = new javax.swing.JTextField();
         txtboxCode = new javax.swing.JTextField();
         btnExit = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,7 +70,12 @@ public class playWindow extends javax.swing.JFrame {
         labelTxt.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labelTxt.setText("De warme drank die je krijgt is de volgende:");
 
+        txtUitkomst.setEditable(false);
         txtUitkomst.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+
+        txtKracht.setEditable(false);
+
+        txtCode.setEditable(false);
 
         btnWillem.setText("Willem knop");
         btnWillem.addActionListener(new java.awt.event.ActionListener() {
@@ -68,8 +84,10 @@ public class playWindow extends javax.swing.JFrame {
             }
         });
 
+        txtBoxSterkte.setEditable(false);
         txtBoxSterkte.setText("Sterkte:");
 
+        txtboxCode.setEditable(false);
         txtboxCode.setText("#Code:");
 
         javax.swing.GroupLayout mainScreenLayout = new javax.swing.GroupLayout(mainScreen);
@@ -77,28 +95,25 @@ public class playWindow extends javax.swing.JFrame {
         mainScreenLayout.setHorizontalGroup(
             mainScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainScreenLayout.createSequentialGroup()
-                .addContainerGap(64, Short.MAX_VALUE)
+                .addContainerGap(53, Short.MAX_VALUE)
+                .addGroup(mainScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txtUitkomst)
+                    .addComponent(labelTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
+            .addGroup(mainScreenLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(mainScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainScreenLayout.createSequentialGroup()
-                        .addGroup(mainScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(mainScreenLayout.createSequentialGroup()
-                                .addComponent(txtBoxSterkte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtKracht, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(mainScreenLayout.createSequentialGroup()
-                                .addComponent(txtboxCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(mainScreenLayout.createSequentialGroup()
-                                .addComponent(btnWillem)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnRoll, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(273, 273, 273))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainScreenLayout.createSequentialGroup()
-                        .addGroup(mainScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtUitkomst)
-                            .addComponent(labelTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(104, 104, 104))))
+                    .addComponent(txtBoxSterkte, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtboxCode, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnWillem, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(18, 18, 18)
+                .addGroup(mainScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtKracht, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(mainScreenLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(btnRoll, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mainScreenLayout.setVerticalGroup(
             mainScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,19 +122,19 @@ public class playWindow extends javax.swing.JFrame {
                 .addComponent(labelTxt)
                 .addGap(18, 18, 18)
                 .addComponent(txtUitkomst, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(mainScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtKracht, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtBoxSterkte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(mainScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtboxCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addGroup(mainScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRoll)
-                    .addComponent(btnWillem))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(mainScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnWillem)
+                    .addComponent(btnRoll))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         btnExit.setText("Exit");
@@ -129,13 +144,22 @@ public class playWindow extends javax.swing.JFrame {
             }
         });
 
+        btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(mainScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(btnReset)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnExit)
                 .addContainerGap())
         );
@@ -143,8 +167,10 @@ public class playWindow extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(mainScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addComponent(btnExit)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnExit)
+                    .addComponent(btnReset))
                 .addContainerGap())
         );
 
@@ -156,31 +182,39 @@ public class playWindow extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
 
+    private void btnWillemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWillemActionPerformed
+        // TODO add your handling code here:
+        txtUitkomst.setText("Atlas Bier");
+        txtKracht.setText("10");
+        txtCode.setText("XXX");
+    }//GEN-LAST:event_btnWillemActionPerformed
+
     private void btnRollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRollActionPerformed
         // TODO add your handling code here:
-
-        //txtUitkomst.setText(String.valueOf();
-        
-       txtUitkomst.setText(String.valueOf(CoffeeChoice.koffieNaam()));
-       txtKracht.setText(String.valueOf(CoffeeChoice.koffieKracht()));
-       txtCode.setText(String.valueOf(CoffeeChoice.koffieCode()));
-                
+        play = !play;
+        if (play) {
+            btnRoll.setText("STOP!");
+        } else {
+            btnRoll.setText("GA!");
+        }
 
     }//GEN-LAST:event_btnRollActionPerformed
 
-    private void btnWillemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWillemActionPerformed
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
-       txtUitkomst.setText("Atlas Bier");
-       txtKracht.setText("10");
-       txtCode.setText("XXX");
-    }//GEN-LAST:event_btnWillemActionPerformed
+        if (!play) {
+        btnRoll.setText("Draai het rad!");
+        txtUitkomst.setText(String.valueOf(""));
+        txtKracht.setText(String.valueOf(""));
+        txtCode.setText(String.valueOf(""));
+        }
+    }//GEN-LAST:event_btnResetActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-  
-     
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -211,11 +245,11 @@ public class playWindow extends javax.swing.JFrame {
             }
         });
     }
-    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnReset;
     private javax.swing.JButton btnRoll;
     private javax.swing.JButton btnWillem;
     private javax.swing.JLabel labelTxt;
@@ -226,6 +260,5 @@ public class playWindow extends javax.swing.JFrame {
     private javax.swing.JTextField txtUitkomst;
     private javax.swing.JTextField txtboxCode;
     // End of variables declaration//GEN-END:variables
-
 
 }
